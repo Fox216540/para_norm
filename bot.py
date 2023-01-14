@@ -49,7 +49,7 @@ def sub(time):
                     else:
                         bot.send_message(id[0],f'Закончился {a[0][0]} урок. Перемена будет длиться до {a[0][2]}. Поесть сейчас не получится, перемена для {a[0][-1]} классов.')
             else:
-                print(f'Учебный день закончился, беги отдыхать!')
+                bot.send_message(id[0],f'Учебный день закончился, беги отдыхать!')
 
 
 class Calls(Thread):
@@ -116,7 +116,6 @@ def start(message):
     id_list = [int(x[0]) for x in cursor.execute("SELECT admin FROM admins").fetchall()]
     conn.close()
     if message.text == 'Подписаться':#Подписаться на рассылку звонков и мемов
-        print(message)
         msg = bot.send_message(message.chat.id, "Тебе необходимо написать класс, в котором ты учишься (пример: 9Г).")
         bot.register_next_step_handler(msg,registration)
     elif message.text == 'Отписаться':#Отписаться от рассылки звонков и мемов
@@ -155,7 +154,6 @@ def photo(message):
         downloaded_file = bot.download_file(file_info.file_path)
         path = os.path.abspath('bot.py')
         new_path = '/'.join(path.replace('\\','/').split('/')[:-1])
-        print(new_path)
         src =  new_path + f"/{str(message.chat.username)}_{str(message.chat.id)}_{file_info.file_unique_id}.jpg"
         with open(src, 'wb') as new_file:
             new_file.write(downloaded_file)
