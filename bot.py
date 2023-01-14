@@ -128,7 +128,7 @@ def start(message):
         try:
             os.remove(f"{message.reply_to_message.text}.jpg")
             bot.send_message(message.chat.id, 'Мем отклонен')
-            bot.send_message(int(text.split('_')[1]),'Ваша мем отклонен')
+            bot.send_message(int(text.split('_')[1]),'Ваш мем отклонен')
         except:
             bot.send_message(message.chat.id,'Пожалуйста, ответьте на сообщение!')
     elif message.text == '+' and message.chat.id in id_list:#Принятие заявки на мем
@@ -139,7 +139,7 @@ def start(message):
             cursor.execute(f"INSERT INTO memes (meme,like,dislike) VALUES ('{text}',0,0)")
             conn.commit()
             bot.send_message(message.chat.id, 'Фото добавлено в мемы!')
-            bot.send_message(int(text.split('_')[1]),'Ваша мем одобрен')
+            bot.send_message(int(text.split('_')[1]),'Ваш мем одобрен')
         except:
             bot.send_message(message.chat.id,'Пожалуйста, ответьте на сообщение!')
     else:
