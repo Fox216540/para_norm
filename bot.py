@@ -5,7 +5,7 @@ import schedule
 import os
 import random
 import datetime
-import re
+
 bot = telebot.TeleBot("5883001802:AAFznn0RawJ5JaXGjTnIXyx3FCMGg-wii1E")
 
 markup = telebot.types.ReplyKeyboardMarkup(True,None,None)
